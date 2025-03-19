@@ -22,7 +22,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/signup' , signupRoutes)
 app.use('/api/products' , productsRoutes)
 
-app.listen(PORT , ()=>{
-    MongoConnect()
+app.listen(PORT ,async ()=>{
+    await MongoConnect()
     console.log(`Server listening to http://localhost:${PORT}`)
 })

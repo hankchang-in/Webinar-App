@@ -1,0 +1,8 @@
+.feature-box{
+    height: 90vh;
+}
+
+.feature-box-2{
+    mix-blend-mode: darken;
+    background-color: #008062;
+}

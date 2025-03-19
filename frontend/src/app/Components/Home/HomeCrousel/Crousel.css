@@ -1,0 +1,54 @@
+
+.mainContainer{
+    animation: dropContainers 2s ;
+    animation-delay: 1s;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10vw;
+}
+
+.container1{
+    background-image: url('/trending_products.jpeg') ;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.container2{
+    background-image: url('https://www.redwolf.in/image/cache/catalog/stickers/choose-sticker-india-438x438.jpg?m=1687890562') ;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgb(172, 196, 191);
+}
+.container2 h1{
+    position: relative;
+    top: 14vh;
+    margin: 0px;
+    color: black;
+    padding: 0%;
+    line-height: 1;
+}
+.stepsText{
+    color: rgb(65, 61, 61);
+    font-size: larger;
+}
+.container3{
+    background-image: url('https://media.istockphoto.com/id/1779962110/photo/a-contemporary-artistic-collage-featuring-a-hand-holding-a-trophy.jpg?s=612x612&w=0&k=20&c=TQPcespDD1CpX2nRYxlXGDq57s5zdhBXD3l1t37E4Ks=');
+    color: rgb(252, 244, 244);
+}
+
+@keyframes dropContainers{
+    from{
+        top:0;
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        top:40%;
+        opacity: 1;
+        scale: 1;
+    }
+}

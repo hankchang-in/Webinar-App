@@ -13,14 +13,30 @@ export const authOptions = {
   pages: {
     signIn: "/login", // Optional: Custom sign-in page
   },
-  callbacks : {
-    async signIn(user, account, profile) {
-      return true;
-    },
-    async session({ session, token }) {
-      session.user = token.user; // Pass user data to session
-      return session;
-    },
+  callbacks: {
+  async jwt({ token, user }) {
+    console.log("JWT Callback: Before assigning user", token);
+
+    // Agar user mila to token.user me set karo
+    if (user) {
+      token.user = {
+        name: user.name,
+        email: user.email,
+        image: user.image,
+      };
+    }
+    return token;
+  },
+  async session({ session, token }) {
+    
+    // Token se user session me set kar rahe hain
+    if (token.user) {
+      session.user = token.user;
+    }
+
+    console.log("Session Callback: After setting user", session);
+    return session;
+  },
   }
   
 };

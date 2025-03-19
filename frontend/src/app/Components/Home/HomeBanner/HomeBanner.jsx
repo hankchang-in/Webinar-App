@@ -1,6 +1,38 @@
+'use client'
 import Navbar from '../Navbar/Navbar';
 import Crousel from '../HomeCrousel/Crousel';
+import { useSession ,SessionProvider} from 'next-auth/react';
+import { useEffect , useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import {jwtDecode} from "jwt-decode";
+
+
 export default function HomeBanner() {
+    const { data: session } = useSession(); // ✅ Ab Session Milega
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.user);
+    const status = useSelector((state) => state.user.status);
+    const [userData, setUserData] = useState(null);
+       
+    useEffect(() => {
+    //    console.log(jwtDecode)
+       const token = document.cookie
+       .split("; ")
+       .find((row) => row.startsWith("token="))
+       ?.split("=")[1];
+    console.log(token)
+   if (token) {
+       try {
+           const decoded = jwtDecode(token);
+           setUserData(decoded);
+           console.log(decoded.role);
+       } catch (error) {
+           console.error("Invalid Token", error);
+       }
+   }
+      console.log(session?.user?.name ,  user , status );
+    },[])
+    console.log(userData);
     return(
         <div className=" items-center justify-center h-screen bg-gradient-to-r from-gray-200 to-gray-400">
             <div>

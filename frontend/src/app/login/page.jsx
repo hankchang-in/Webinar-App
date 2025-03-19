@@ -26,10 +26,9 @@ const page = () => {
     
      const showPopup = (message , type) => {
             Swal.fire({
-              title: type,
               text: message,
-              icon: type,
-              confirmButtonText: 'OK',
+              timer: 1000,
+              timerProgressBar: true,
             });
           };
          
