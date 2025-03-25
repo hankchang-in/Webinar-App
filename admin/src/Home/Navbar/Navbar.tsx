@@ -1,10 +1,10 @@
 'use client'
 import { useState } from "react";
 import { Home, User, Settings, Menu } from "lucide-react";
-
+import { useRouter } from "next/navigation";
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
-
+  const router = useRouter()
   return (
     <div className="flex">
       {/* Sidebar */}
@@ -23,7 +23,7 @@ export default function Sidebar() {
         <ul className="space-y-4">
           <li className="flex items-center gap-3 cursor-pointer p-2 rounded-md hover:bg-gray-700">
             <Home />
-            <span className={`${!isOpen && "hidden"}`}>Dashboard</span>
+            <span onClick={()=>{console.log('routing'); router.push('/login')}} className={`${!isOpen && "hidden"}`}>Dashboard</span>
           </li>
           <li className="flex items-center gap-3 cursor-pointer p-2 rounded-md hover:bg-gray-700">
             <User />

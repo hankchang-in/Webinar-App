@@ -22,7 +22,7 @@ export default function LoginInput() {
       body: JSON.stringify({ email, password }),
     };
     try {
-      const response = await fetch("http://localhost:3000/api/test", options);
+      const response = await fetch("http://localhost:3000/api/login", options);
       console.log(response);
       if(response.status === 200){
         const data = await response.json();
